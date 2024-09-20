@@ -1,5 +1,6 @@
 from flask import jsonify, url_for
 
+
 class APIException(Exception):
     status_code = 400
 
@@ -15,10 +16,12 @@ class APIException(Exception):
         rv['message'] = self.message
         return rv
 
+
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
     arguments = rule.arguments if rule.arguments is not None else ()
     return len(defaults) >= len(arguments)
+
 
 def generate_sitemap(app):
     links = []
@@ -34,4 +37,5 @@ def generate_sitemap(app):
         <div style="text-align: center;">
         <img src='https://github.com/breatheco-de/exercise-family-static-api/blob/master/rigo-baby.jpeg?raw=true' />
         <h1>Hello Rigo!!</h1>
-        This is your api home, remember to specify a real endpoint path like: <ul style="text-align: left;">"""+links_html+"</ul></div>"
+        This is your api home, remember to specify a real endpoint path like: 
+        <ul style="text-align: left;">""" + links_html + "</ul></div>"
